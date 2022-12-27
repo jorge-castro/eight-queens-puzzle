@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "eight-queens-puzzle"
+version = "0.1.0"
+description = ""
+authors = ["Jorge Castro <me@jorgecastro.xyz>"]
+readme = "README.md"
+packages = [{include = "eight_queens_puzzle"}]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.2.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
