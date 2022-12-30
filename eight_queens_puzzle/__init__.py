@@ -1,1 +1,1 @@
-from .eight_queens_puzzle import *
+from .main import Chessboard, solve, is_safe
