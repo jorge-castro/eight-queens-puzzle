@@ -1,4 +1,4 @@
-from eight_queens_puzzle import Chessboard, solve, is_safe
+from eight_queens_puzzle.main import Chessboard, solve, is_safe
 
 
 # Number of solutions to the n-queens problem for boards of size 0-27
