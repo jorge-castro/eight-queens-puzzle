@@ -8,10 +8,14 @@ packages = [{include = "eight_queens_puzzle"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
+sqlalchemy = "^1.4.45"
+python-dotenv = "^0.21.0"
+psycopg2 = "^2.9.5"
 
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.0"
+
 
 [build-system]
 requires = ["poetry-core"]
