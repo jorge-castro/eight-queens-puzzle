@@ -1,0 +1,22 @@
+services:
+    app:
+        build: .
+        environment:
+            - PGUSER=postgres
+            - PGPASSWORD=${POSTGRES_PASSWORD:?error}
+            - PGHOST=db
+            - PGDATABASE=postgres
+        entrypoint: ["./wait-for-postgres.sh"]
+        command: ["python", "-m", "eight_queens_puzzle"]
+        depends_on:
+            - db
+    db:
+        image: postgres:14
+        restart: always
+        shm_size: 256mb
+        environment:
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:?error}
+        volumes:
+            - db-data:/var/lib/postgresql/data
+volumes:
+    db-data:
