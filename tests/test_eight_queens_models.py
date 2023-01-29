@@ -1,19 +1,22 @@
+import pytest
 from sqlalchemy import create_mock_engine
 
 from eight_queens_puzzle.models import Base
 
 
-def test_create_all():
+@pytest.fixture
+def mock_engine():
     def dump(sql, *multiparams, **params):
         print(sql.compile(dialect=engine.dialect))
 
     engine = create_mock_engine("postgresql://", dump)
-    Base.metadata.create_all(engine)
+
+    return engine
 
 
-def test_drop_all():
-    def dump(sql, *multiparams, **params):
-        print(sql.compile(dialect=engine.dialect))
+def test_create_all(mock_engine):
+    Base.metadata.create_all(mock_engine)
 
-    engine = create_mock_engine("postgresql://", dump)
-    Base.metadata.drop_all(engine)
+
+def test_drop_all(mock_engine):
+    Base.metadata.drop_all(mock_engine)
