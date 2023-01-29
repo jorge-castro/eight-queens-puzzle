@@ -6,8 +6,8 @@ This is my solution to the [eight queens puzzle](https://en.wikipedia.org/wiki/E
 
 This project uses [Poetry](https://python-poetry.org/) for dependency management. To install dependencies simply run:
 
-```bash
-$ poetry install
+```shell
+poetry install
 ```
 
 Note that this application depends on [psycopg2](https://www.psycopg.org/docs/) and is therefore subject to its [build and runtime prerequisites][1].
@@ -17,20 +17,20 @@ Note that this application depends on [psycopg2](https://www.psycopg.org/docs/) 
 To compute and visualize the solutions run the `main` submodule inside the project package and pass the number of queens as an argument (defaults to 8 if not
 provided):
 
-```bash
-$ python -m eight_queens_puzzle.main QUEEN_NUMBER
+```shell
+python -m eight_queens_puzzle.main [QUEEN_NUMBER]
 ```
 
 To compute and write the solutions to a PostgreSQL database run the project package as a module following the same pattern as above:
 
-```bash
-$ python -m eight_queens_puzzle QUEEN_NUMBER
+```shell
+python -m eight_queens_puzzle [QUEEN_NUMBER]
 ```
 
 And lastly, the `view_db_solutions.py` script can retrieve stored solutions from the database and display them. E.g.:
 
-```bash
-$ python view_db_solutions.py QUEEN_NUMBER | less
+```shell
+python view_db_solutions.py [QUEEN_NUMBER] | less
 ```
 
 The parameters for the connection to the database are to be configured by the use of [libpq environment variables][2]. These can be placed in an `.env` file
@@ -38,7 +38,7 @@ for convenience. Further details can be found in the [SQLAlchemy docs][3].
 
 ## Testing
 
-Tests are located under tests/ and are run with [pytest](https://pytest.org).
+Tests are located under `tests/` and are run with [pytest](https://pytest.org).
 
 ## Docker
 
@@ -46,23 +46,23 @@ A `Dockerfile` and a Compose file are provided to ease development/deployment.
 
 The following commands will drop you into a shell where you can run tests and code that don't depend on a database connection:
 
-```bash
-$ docker build -t eight-queens-puzzle .
-$ docker run -it eight-queens-puzzle
+```shell
+docker build -t eight-queens-puzzle .
+docker run -it eight-queens-puzzle
 ```
 
 To spin up a PostgreSQL instance with data persisted to a volume:
 
-```bash
-$ export POSTGRES_PASSWORD=create-db-with-this-password
-$ docker compose up -d
+```shell
+export POSTGRES_PASSWORD=create-db-with-this-password
+docker compose up -d
 ```
 
 The above will also create an instance of the application and write the solutions for a standard 8x8 chessboard to the database. To run further commands, such
 as those in the [usage section](#usage) (or drop into a shell before doing so):
 
-```bash
-$ docker compose run app [COMMAND] [ARGS...]
+```shell
+docker compose run app [COMMAND] [ARGS...]
 ```
 
 [1]: https://www.psycopg.org/docs/install.html#prerequisites
