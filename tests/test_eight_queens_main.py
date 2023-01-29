@@ -1,4 +1,4 @@
-from eight_queens_puzzle.main import Chessboard, solve, is_safe
+from eight_queens_puzzle.main import Chessboard
 
 
 # Number of solutions to the n-queens problem for boards of size 0-27
@@ -41,7 +41,7 @@ def test_solve():
         chessboard = Chessboard(size)
         solution_count = 0
 
-        for i, solution in enumerate(solve(chessboard), start=1):
+        for i, solution in enumerate(chessboard.solve(), start=1):
             solution_count = i
 
         assert solution_count == number_of_solutions[size]
@@ -54,9 +54,9 @@ def test_is_safe():
 
     # Position in the first column in the second row (vertically aligned) should
     # be deemed unsafe
-    assert not is_safe(chessboard, 1, 0)
+    assert not chessboard.is_safe(1, 0)
     # Position in the second column in the second row (diagonally aligned)
     # should be deemed unsafe
-    assert not is_safe(chessboard, 1, 1)
+    assert not chessboard.is_safe(1, 1)
     # Position in the third column in the second row should be deemed safe
-    assert is_safe(chessboard, 1, 2)
+    assert chessboard.is_safe(1, 2)
