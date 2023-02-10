@@ -10,7 +10,7 @@ packages = [{include = "eight_queens_puzzle"}]
 python = "^3.9"
 sqlalchemy = "^1.4.45"
 python-dotenv = "^0.21.0"
-psycopg2 = "^2.9.5"
+psycopg2cffi = "^2.9.0"
 
 
 [tool.poetry.group.test.dependencies]

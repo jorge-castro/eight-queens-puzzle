@@ -10,7 +10,7 @@ This project uses [Poetry](https://python-poetry.org/) for dependency management
 poetry install
 ```
 
-Note that this application depends on [psycopg2](https://www.psycopg.org/docs/) and is therefore subject to its [build and runtime prerequisites][1].
+Note that this application depends on [psycopg2cffi](https://pypi.org/project/psycopg2cffi/) and is therefore subject to its [build and runtime prerequisites][1].
 
 ## Usage
 
@@ -65,7 +65,7 @@ as those in the [usage section](#usage) (or drop into a shell before doing so):
 docker compose run app [COMMAND] [ARGS...]
 ```
 
-[1]: https://www.psycopg.org/docs/install.html#prerequisites
+[1]: https://pypi.org/project/psycopg2cffi/#installation
 [2]: https://www.postgresql.org/docs/current/libpq-envars.html
 [3]: https://docs.sqlalchemy.org/en/14/dialects/postgresql.html#empty-dsn-connections-environment-variable-connections
 [4]: https://github.com/docker-library/docs/blob/master/postgres/README.md#postgres_password

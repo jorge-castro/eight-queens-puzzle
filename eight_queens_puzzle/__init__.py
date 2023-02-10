@@ -8,7 +8,7 @@ from .models import Base
 
 # Configure connection through the environment
 load_dotenv()
-engine = create_engine("postgresql+psycopg2://", future=True)
+engine = create_engine("postgresql+psycopg2cffi://", future=True)
 Session = sessionmaker(engine)
 
 
