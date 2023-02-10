@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "eight_queens_puzzle"}]
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.9"
 sqlalchemy = "^1.4.45"
 python-dotenv = "^0.21.0"
 psycopg2 = "^2.9.5"
